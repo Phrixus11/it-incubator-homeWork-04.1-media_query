@@ -7,6 +7,7 @@
 html,
 body {
     font-family: "Rubik", sans-serif;
+    min-width: 375px;
 }
 
 a {
@@ -43,7 +44,6 @@ input[type="radio"], input[type="checkbox"], input[type="date"], select {
     padding: 0 15px;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid red;
 }
 
 /* стили для хереда */
@@ -64,6 +64,9 @@ input[type="radio"], input[type="checkbox"], input[type="date"], select {
     background-color: #0a61f7;
 }
 
+nav #menu__toggle {
+    display: none;
+}
 
 .menu-link {
     font-weight: 500;
@@ -283,11 +286,12 @@ input[type="email"], input[type="password"], input[type="date"], select {
 .stack, fieldset {
     display: flex;
     column-gap: 30px;
+
 }
 
 fieldset {
     width: 100%;
-
+    flex-wrap: wrap;
 }
 
 textarea {
@@ -366,9 +370,127 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @media screen and (max-width: 700px) {
-   
-   
+    nav {
+        width: 36px;
+        height: 21px;
+        margin-right: 5px;
+    }
+
+    /* скрываем чекбокс */
+    nav #menu__toggle {
+    position: fixed;
+    display: block;
+    opacity: 0;
+    }
+
+    .menu__btn {
+        display: flex; /* используем flex для центрирования содержимого */
+        align-items: center;  /* центрируем содержимое кнопки */
+        position: absolute;
+        top: 30px;
+        width: 36px;
+        height: 26px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .menu__btn.two {
+        position: fixed;
+
+    }
+
+    /* добавляем "гамбургер" */
+    .menu__btn > span,
+    .menu__btn > span::before,
+    .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 35px;
+    height: 2px;
+    background-color: #ffffff;
+    margin: auto;
+    }
+
+    .menu__btn > span::before {
+    content: '';
+    top: -8px;
+    }
+
+    .menu__btn > span::after {
+    content: '';
+    top: 8px;
+    }
+
+        /* контейнер меню */
+    .menu {
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        left: -100%;
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        text-align: center;
+        background-color: #0a61f7;
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    }
+    /* элементы меню */
+    .menu-link {
+        display: block;
+        padding: 8px 8px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .menu-link:hover {
+        background-color: #CFD8DC;
+    }
+
+    #menu__toggle:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+        }
+    #menu__toggle:checked ~ .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0);
+        }
+    #menu__toggle:checked ~ .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+        }
+    #menu__toggle:checked ~ .menu {
+        visibility: visible;
+        left: 0;
+        }
+
+        #menu__toggle:checked ~ .menu__btn.two {
+        visibility: visible;
+        left: 20px;
+        }
+        /* первая секция  */
+
+    .main-info {
+        margin: 60px 0;
+    }
+
+    h1 {
+        font-size: 52px;
+        line-height: 60px;
+    }
+
     .main-img {
+        width: 100%;
+    }
+
+    .rates-section .text {
+        text-align: center;
+    }
+
+    .account-wrapper {
+        gap: 45px;
+    }
+
+    input[type="email"], input[type="password"] {
         width: 100%;
     }
 

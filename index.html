@@ -20,15 +20,22 @@
                     <img src="/assets/images/logo.svg" alt="it-incubator">
                 </a>
                 <nav>
+                    <input id="menu__toggle" type="checkbox">
+                    <label class="menu__btn two" for="menu__toggle">
+                        <span></span>
+                    </label>
+                    <label class="menu__btn" for="menu__toggle">
+                        <span></span>
+                    </label>
                     <ul class="menu">
                         <li class="menu-item">
                             <a href="#" class="menu-link">Main</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#" class="menu-link">Rates</a>
+                            <a href="#rates-section" class="menu-link">Rates</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#" class="menu-link">Create Account</a>
+                            <a href="#create-account" class="menu-link">Create Account</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,7 +59,7 @@
     </section>
 
     <!-- Вторая секция, таблица -->
-    <section class="rates-section">
+    <section class="rates-section" id="rates-section">
         <div class="container">
             <div class="rates-wrapped">
                 <h2 class="title">Rates</h2>
@@ -103,7 +110,7 @@
 
     <!-- Третья секция, форма -->
 
-    <section class="create-account">
+    <section class="create-account" id="create-account">
         <div class="container">
             <div class="account-wrapper">
                 <div class="account-info-wrapped">
